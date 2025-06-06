@@ -362,7 +362,7 @@ body {
 .btn-fullscreen {
   position: fixed;
   bottom: 20rem;
-  right: 35rem;
+  right: 45rem;
   padding: 0.5rem 1rem;
   font-size: 1rem;
   z-index: 1000;
@@ -372,6 +372,7 @@ body {
   border-radius: 10px;
   display: none;
 }
+
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -410,4 +411,9 @@ body {
   .contenedor {
     height: 100vh;
   }
+
+  .btn-fullscreen {
+    display: block;
+  }
+  
 }
