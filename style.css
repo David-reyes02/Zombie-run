@@ -1,0 +1,395 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  background: #000000;
+  display: flex;
+  align-items: center;
+}
+
+.contenedor {
+  width: 1720px;
+  max-width: 1200px;
+  height: 60vh;
+  margin: 0 auto;
+  position: relative;
+  transition: background-color 1s linear;
+  overflow: hidden;
+  
+}
+
+#mensaje-inicio {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
+  color: white;
+  z-index: 1000;
+  font-family: 'VT323', monospace;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 20px;
+}
+
+.fondo-luna { 
+  position: absolute;
+  width: 100%; 
+  height: 100%; 
+  top: -10%;
+  left: 0; 
+  background-image: url(img/cielo/Moon_asset.png); 
+  background-size: 250px 250px; 
+  background-repeat: no-repeat; 
+  z-index: -6; 
+}
+.fondo-cielo {
+  position: absolute;
+  width: 100%;
+  height: 60vh;
+  top: 0;
+  left: 0;
+  background-image: url(img/cielo/sky.png);
+  background-size: cover;
+  z-index: -7;
+  bottom: 60px;
+  background-size: 40%;
+}
+
+.fondo-casas5 {
+  background-image: url(img/city/houses5.png);
+  background-repeat: repeat-x;
+  background-size: contain;
+  position: absolute;
+  background-position: 0 0;
+  left: 0px;
+  width: 100%;
+  height: 105%;
+  bottom: -20px;
+  z-index: -3;
+}
+
+.fondo-casas4 {
+  background-image: url(img/city/houses4.png);
+  background-position-x: 0, 100%;
+  background-repeat: repeat-x;
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+  height: 110%;
+  bottom: -20px;
+  left: 0;
+  z-index: -4;
+}
+
+.fondo-casas3 {
+  position: absolute;
+  width: 100%;
+  height: 120%;
+  bottom: -50px;
+  left: 0;
+  background-image: url(img/city/houses3.png);
+  background-size: cover;
+  background-repeat: repeat-x;
+  background-position-x: 0;
+  z-index: -3;
+}
+
+.fondo-casas2 {
+  position: absolute;
+  width: 100%;
+  height: 85%;
+  bottom: -60px;
+  left: 0;
+  background-image: url(img/city/houses2.png);
+  background-size: contain;
+  background-repeat: repeat-x;
+  background-position-x: 0;
+  z-index: -2;
+}
+
+.fondo-casas {
+  background-image: url('/img/city/houses1.png');
+  background-repeat: repeat-x;
+  background-position: 0;
+  background-size: contain; /* o auto, o cover si querés que escale */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.fondo-muro {
+  position: absolute;
+  width: 100%;
+  height: 70%;
+  bottom: 10px;
+  left: 0;
+  background-image: url(img/city/wall.png);
+  background-size: contain;
+  background-repeat: repeat-x;
+  background-position-x: 0;
+  z-index: 0;
+}
+
+.suelo {
+  width: 200%;
+  height: 155px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-image: url(img/city/road.png);
+  background-repeat: repeat-x;
+  background-position-x: 0;
+  background-size: auto 155px;
+  z-index: 1;
+}
+
+/* Dino */
+.dino {
+  width: 95px;
+  height: 185px;
+  position: absolute;
+  bottom: 22px;
+  left: 132px;
+  z-index: 2;
+  background: url(img/personaje/pj.png) repeat-x 0px 0px;
+  background-size: 840px 185px;
+  background-position-x: 0px;
+}
+
+@keyframes animarDino {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -840px;
+  }
+}
+
+.dino-corriendo {
+  animation: animarDino 0.9s steps(10) infinite;
+}
+
+.dino-estrellado {
+  background-position-x: -252px;
+}
+
+.dino-saltando {
+  background: url("img/personaje/Jump.png") no-repeat;
+  background-size: 840px 185px;
+  animation: saltoDino 0.9s steps(10) forwards;
+}
+
+@keyframes saltoDino {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -840px;
+  }
+}
+
+.dino-muerto {
+  width: 95px;
+  height: 185px;
+  bottom: 32px;
+  background: url("img/personaje/Dead.png") no-repeat;
+  background-size: 550px 185px;
+  animation: animarMuerte 0.5s steps(4) forwards;
+}
+
+@keyframes animarMuerte {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -450px;
+  }
+}
+
+/* Puntuación */
+.score {
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  z-index: 10;
+  color: #b44627;
+  font-family: 'VT323', monospace;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: right;
+}
+
+/* Cactus */
+@keyframes animarCactus {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -840px;
+  }
+}
+
+.parado * {
+  animation-play-state: paused !important;
+}
+
+
+.cactus,
+.cactus2,
+.cactus3,
+.cactus4,
+.cactus5,
+.cactus6,
+.cactus7 {
+  width: 90px;
+  position: absolute;
+  bottom: 22px;
+  z-index: 1;
+  animation: animarCactus 0.9s steps(7) infinite;
+}
+
+.cactus {
+  height: 175px;
+  background: url("img/zombis/Run.png") no-repeat;
+  background-size: 840px 175px;
+}
+
+.cactus2 {
+  height: 175px;
+  background: url("img/zombis/Run.2.png") no-repeat;
+  background-size: 840px 175px;
+  animation-duration: 1.2s;
+}
+
+.cactus3 {
+  height: 175px;
+  background: url("img/zombis/Run3.png") no-repeat;
+  background-size: 840px 175px;
+  animation-duration: 1.4s;
+}
+
+.cactus4 {
+  height: 200px;
+  background: url("img/zombis/Run4.png") no-repeat;
+  background-size: 840px 200px;
+  animation: animarCactus 0.9s steps(10) infinite;
+}
+
+.cactus5 {
+  height: 195px;
+  background: url("img/zombis/Run5.png") no-repeat;
+  background-size: 840px 195px;
+  animation: animarCactus 0.9s steps(10) infinite;
+}
+
+.cactus6 {
+  height: 195px;
+  background: url("img/zombis/Run6.png") no-repeat;
+  background-size: 840px 195px;
+  animation: animarCactus 0.9s steps(10) infinite;
+}
+
+.cactus7 {
+  height: 195px;
+  background: url("img/zombis/Run7.png") no-repeat;
+  background-size: 840px 195px;
+  animation: animarCactus 0.7s steps(6) infinite;
+}
+
+/* Nube 
+.nube {
+  width: 92px;
+  height: 26px;
+  position: absolute;
+  z-index: 0;
+  background: url(img/clouds_shape8_3.png) no-repeat;
+  background-size: 92px 16px;
+}*/
+
+.nube {
+  position: absolute;
+  width: 400px;  /* Aumentá este valor */
+  height: 100px; /* Aumentá este valor */
+  background-image: url('img/cielo/clouds_shape8_3.png');
+  background-size: cover; /* o cover, según tu necesidad */
+  background-position: center;
+  background-size: 340px 66px;
+  z-index: 0;
+}
+
+/* Pantalla de game over */
+.game-over {
+  display: none;
+  position: absolute;
+  width: 100%;
+  max-width: 1260px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2vh 0;
+  z-index: 10;
+  text-align: center;
+  color: #c1dbd2;
+  font-size: 3.5vw;
+  font-family: 'VT323', monospace;
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.65);
+  box-sizing: border-box;
+}
+
+#btn-reiniciar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  font-size: 40px;
+  color: #dddddd;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+#btn-reiniciar:hover {
+  transform: rotate(20deg) scale(1.1);
+  color: #c2c2c2;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .game-over {
+    font-size: 5vw;
+    padding: 4vh 0;
+  }
+
+  .contenedor {
+    height: 50vh;
+  }
+
+  .suelo {
+    bottom: -97px;
+    height: 70%;
+    background-size: 1 40px 185px;
+  }
+
+  .nube {
+    position: absolute;
+    width: 8vw; /* Escala relativa al ancho de la pantalla */
+    max-width: 120px; /* Evita que crezcan demasiado en pantallas grandes */
+    height: auto; 
+    opacity: 0.8;
+    pointer-events: none;
+    animation: flotar 10s linear infinite;
+  }
+  
+}
+
+@media (orientation: landscape) and (max-width: 1024px) {
+  .contenedor {
+    height: 100vh;
+  }
+}
