@@ -361,16 +361,16 @@ body {
 
 .btn-fullscreen {
   position: fixed;
-  bottom: 20rem;
-  right: 45rem;
-  padding: 0.5rem 1rem;
+  bottom: 20px;
+  right: 20px;
+  padding: 0.7rem 1rem;
   font-size: 1rem;
   z-index: 1000;
   background-color: rgba(0, 0, 0, 0.7);
   color: #fff;
   border: none;
   border-radius: 10px;
-  display: none;
+  display: none; /* Se activa con media query */
 }
 
 
@@ -410,10 +410,6 @@ body {
 @media (orientation: landscape) and (max-width: 1024px) {
   .contenedor {
     height: 100vh;
-  }
-
-  .btn-fullscreen {
-    display: block;
   }
   
 }
