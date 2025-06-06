@@ -52,7 +52,7 @@ var tiempoNubeMax = 1.2;
 var maxNubeY = 670;
 var minNubeY = 250;
 var nubes = [];
-var velNube = 0.5;
+var velNube = 0.3;
 
 var contenedor;
 var dino;
@@ -348,3 +348,22 @@ function IsCollision(a, b, paddingTop, paddingRight, paddingBottom, paddingLeft)
         (aRect.left + paddingLeft > (bRect.left + bRect.width))
     );
 }
+
+
+// Mostrar botón de pantalla completa solo en móviles
+document.addEventListener("DOMContentLoaded", () => {
+    const fullscreenBtn = document.getElementById("btn-fullscreen");
+
+    if (window.innerWidth <= 768 && fullscreenBtn) {
+        fullscreenBtn.addEventListener("click", () => {
+            const elem = document.documentElement;
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) {
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) {
+                elem.msRequestFullscreen();
+            }
+        });
+    }
+});
