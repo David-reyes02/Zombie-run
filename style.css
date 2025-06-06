@@ -361,8 +361,8 @@ body {
 
 .btn-fullscreen {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 80%;
+  right: 75%;
   padding: 0.7rem 1rem;
   font-size: 1rem;
   z-index: 1000;
@@ -404,6 +404,17 @@ body {
   .btn-fullscreen {
     display: block;
   }
+
+  .btn-fullscreen {
+    bottom: 80%;
+    right: 70%;
+    padding: 0.8rem 1.2rem;
+    font-size: 1.2rem;
+    display: block;
+    z-index: 9999;
+    display: none; 
+  }
+  
   
 }
 

@@ -354,16 +354,35 @@ function IsCollision(a, b, paddingTop, paddingRight, paddingBottom, paddingLeft)
 document.addEventListener("DOMContentLoaded", () => {
     const fullscreenBtn = document.getElementById("btn-fullscreen");
 
-    if (window.innerWidth <= 768 && fullscreenBtn) {
-        fullscreenBtn.addEventListener("click", () => {
+    const esMovil = /Mobi|Android|iPhone|iPad|iPod|Touch/.test(navigator.userAgent);
+
+    if (fullscreenBtn && esMovil) {
+        // Mostrar botón si es móvil
+        fullscreenBtn.style.display = "block";
+
+        const activarPantallaCompleta = () => {
             const elem = document.documentElement;
-            if (elem.requestFullscreen) {
-                elem.requestFullscreen();
-            } else if (elem.webkitRequestFullscreen) {
-                elem.webkitRequestFullscreen();
-            } else if (elem.msRequestFullscreen) {
-                elem.msRequestFullscreen();
+            if (!document.fullscreenElement) {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) {
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) {
+                    elem.msRequestFullscreen();
+                }
             }
+        };
+
+        // Soporte para click y touch
+        fullscreenBtn.addEventListener("click", e => {
+            e.preventDefault();
+            activarPantallaCompleta();
+        });
+
+        fullscreenBtn.addEventListener("touchend", e => {
+            e.preventDefault();
+            activarPantallaCompleta();
         });
     }
 });
+
